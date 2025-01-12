@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+// Color
+$gray: #999999;
+$dark-gray: #333333;
+$blue: #0086e4;
+
+$primary-color: $blue;
+$border-color: #dddddd;
+
+// Font
+$primary-font: 'Lato', sans-serif;
+
+// Typography
+$body-font-family: $primary-font;
+$body-font-size: 14px;
+$body-color: $dark-gray;
+
+// Input
+$input-height: 40px;
+
+// Button
+$button-height: $input-height;
+
+* {
+  box-sizing: border-box;
+}
+
+body {   
+    background-size: cover;
+  background-image: url(img/wp12933215.webp); 
+  background-position: 100%;
+  margin: 0;
+  padding: 0;
+  font: {
+    family: $body-font-family;
+    size: $body-font-size;
+  }
+  color: $body-color;
+}
+
+h1,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 10px;
+  + p {
+    color: $gray;
+    margin-bottom: 30px;
+  }
+}
+
+p {
+  margin-bottom: 20px; 
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+input[type="checkbox"] {
+  margin: 0;
+  padding: 0;
+  height: 17px;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+display: flex;
+   align-items: center;
+   justify-content: center;
+  
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  min-width: 320px;
+  background-color: white;
+}
+
+
+// Util
+// You can create a different file to store all utilities classes
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-align-center {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+button {
+    cursor: pointer;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    width: 100%;
+    height: $button-height;
+    transition: 300ms background-color ease-in-out;
+    &:hover {
+        background-color: lighten($primary-color, 10%);
+    }
+}
+
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+    &__label {
+        display: block;
+        position: absolute;
+        top: 0;
+        // to keep the position center
+        line-height: $input-height;
+        color: #aaa;
+        left: 5px;
+        padding: 0 5px;
+        transition: line-height 200ms ease-in-out,
+            font-size 200ms ease-in-out, 
+            top 200ms ease-in-out;
+        // firefox fix
+        pointer-events: none;
+    }
+    &__input {
+        width: 100%;
+        height: $input-height;
+        border: 1px solid $border-color;
+        border-radius: 3px;
+        padding: 0 10px;
+        // there must a required prop in input
+        // &:valid,
+        // need to add placeholder
+        &:not(:placeholder-shown),
+        &:focus {
+            + label {
+                background-color: white;
+                line-height: 10px;
+                opacity: 1;
+                font-size: 10px;
+                top: -5px;
+            }
+        }
+        &:focus {
+            outline: none;
+            border: 1px solid $primary-color;
+            + label {
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+.tabs {
+    $parent: &;
+    display: flex;
+    flex-flow: row wrap;
+    &__text {
+        flex: 1;
+        margin: 0;
+        cursor: pointer;
+        padding: 20px 30px;
+        font-size: 1.2em;
+        opacity: 0.5;
+        background-color: #eeeeee;
+        border-top: 3px solid #eeeeee;
+        transition: border-top 300ms ease-out;
+        transform-origin: top;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+    }
+    &__content {
+        display: none;
+        flex: 1 1 100%;
+        order: 99;
+        padding: 40px 30px 30px 30px;
+    }
+    &__button {
+        visibility: hidden;
+        height: 0;
+        margin: 0;
+        position: absolute;
+        &:checked {
+            + #{$parent}__text {
+                // order: -1;
+                color: $primary-color;
+                opacity: 1;
+                background-color: white;
+                border-top: 3px solid $primary-color;
+            }
+            + #{$parent}__text + #{$parent}__content {
+                display: block;
+            }
+        }
+    }
+}

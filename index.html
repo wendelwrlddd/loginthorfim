@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <link rel="stylesheet" href="./css/stilos.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="tabs">
+                <!-- Sign In -->
+                <input type="radio" class="tabs__button" name="signForm" id="signIn" checked />
+                <label class="tabs__text" for="signIn">Entrar</label>
+                <div class="tabs__content">
+                    <h1>Bem vindo!</h1>
+                    <p>Volte ao seu caminho</p>
+                    <form class="form">
+                        <div class="input-group">
+                            <input class="input-group__input" type="text" placeholder="&nbsp;" name="username" id="username" autocomplete="off" required />
+                            <label class="input-group__label" for="username">Nome de usuário</label>
+                        </div>
+                        <div class="input-group">
+                            <input class="input-group__input" type="password" name="password" placeholder="&nbsp;" id="password" required />
+                            <label class="input-group__label" for="password">Senha</label>
+                        </div>
+                        <!-- Normally I would create a grid system or use an existing to cater this issue -->
+                        <div class="flex-space-between">
+                            <label class="flex-align-center"><input type="checkbox" /> Lembre de mim</label>
+                            <p><a href="#">Esqueceu sua senha?</a></p>
+                        </div>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+
+                <!-- Sign Up -->
+                <input type="radio" class="tabs__button" name="signForm" id="signUp" />
+                <label class="tabs__text" for="signUp">Inscrever-se</label>
+                <div class="tabs__content">
+                    <h1>Nova conta</h1>
+                    <p>Comece sua jornada agora</p>
+                    <form class="form">
+                        <div class="input-group">
+                            <input class="input-group__input" type="email" placeholder="&nbsp;" name="username" id="username" autocomplete="off" required />
+                            <label class="input-group__label" for="email">Email</label>
+                        </div>
+                        <div class="input-group">
+                            <input class="input-group__input" type="password" name="password" placeholder="&nbsp;" id="password" required />
+                            <label class="input-group__label" for="password">Senha</label>
+                        </div> 
+                        <p><small>Ao enviar este formulário, você confirma que leu e concordou com os<a href="#">Terms and Conditions.</a></small></p>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
